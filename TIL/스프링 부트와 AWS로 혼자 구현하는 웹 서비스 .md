@@ -37,12 +37,22 @@
 * 조회화면을 만드는 로직과 수정, 삭제 화면을 만드는 로직은 어떤 차이가 있는거지?
   - PostsApiController 에서 조회관련 mapping은 없었음.  
   
-* 애매했던 점.  
-  - 정말 애매했는지는 계속해서 업데이트 할 예정입니다(이는 충동적인 감정이 과잉되서 쓴 글일 수 있음을 배제할 수 없기 때문입니다).  
-  1. 초보자가 추측이 가능할 정도로 쉬운 코드를 설명하는데, 쉬운코드 중 어떤 코드는 그냥 넘어가고 어떤 코드는 설명하는 것이 일관성이 없었다고 느낌.  
-  2. 읽을 독자가 초보자인가, 아니면 어느정도 스프링, 부트 혹은 필요한 기본지식을 습득한 독자인가. 명확한 기준점이 세워지지가 않음. 왜냐하면 위에 말했다싶이 어떤 페이지의 설명은 초보자가 이해하기 어려울 정도로  
-     기본 개념을 간단하게만 알려주거나 알려주지 않다가, 어떤 페이지의 코드에는 초보자가 바라는 코드설명이 되어 있었음.  (이는 근거가 필요합니다. 아직 제시하지 않음, 느낌만 일단 적음, 153p 의 이전과 이후).  
-     
+* 174p  
+  Open Id Provider가 뭐지?  
+  
+git과 github에 대해서 공부해야 함.  
+  
+* 178p  
+  enum 타입이 뭐지?  
+  
+* 179p  
+  optional[참고](http://homoefficio.github.io/2019/10/03/Java-Optional-바르게-쓰기/)
+  
+* 스프링 시큐리티  
+  [okky-초보가 이해하는 스프링 시큐리티](https://okky.kr/article/382738)  
+  [스프링 공식 레퍼런스](https://spring.io/projects/spring-security)  
+  [스프링 oauth2](https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Migration-Guide)  
+  [Spring Security 스프링 시큐리티](https://velog.io/@jayjay28/2019-09-04-1109-작성됨)  
   
   
   
