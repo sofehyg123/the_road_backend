@@ -49,7 +49,9 @@
     private MemberDao memberDao;
     // MemberDao 타입에 해당하는 빈이 있는지 스프링 컨테이너 안에서 확인한다. 있으면 주입.
     ```
-
+  - 자동주입  
+    - @Autowired
+      - 
 
 > 설정정보  
 * @Configuration : 해당 클래스를 스프링 설정 클래스로 지정한다.  
@@ -69,8 +71,21 @@
 * BeanFactory  
   - 생성된 객체를 검색하는데 필요한 getBean()메서드가 BeanFactory에 정의되어 있다.  
   - 싱글톤/프로토타입 빈인지 확인하는 기능도 제공  
-
-
+  - getBean() 메서드를 실제 구현한 클래스는 AbstractApplicationContext.  
+  
+* 두 개의 설정  
+  - 설정파일 2개 만들고 @Autowired를 사용하기
+    - 설정 클래스가 2개 이상이어도 스프링 컨테이너를 생성하는 코드는 두 개의 설정파일 코드를 넣어주면 된다.  
+    > ctxa = new AnnotationConfigApplicationContext(AppConf1.class, AppConf2.class);  
+    - AnnotationConfigApplicationContext 생성자의 인자는 가변인자이기 때문에 콤마로 구분해서 전달하면 된다.  
+  - @import 애노테이션 사용  
+    - 함꼐 사용할 설저 클래스를 지정한다.
+    - 때문에, 스프리 컨테이너를 생성할 때 AppConf2 설정 클래스를 지정할 필요가 없다.  
+    - 배열을 이용해서 두 개 이상의 클래스도 지정할 수 있다.  
+    ```
+  - 다중 @Import : 설정 클래스가 바뀌어도 @import만 해준다면 스프링 컨테이너 생성하는 최상위 클래스가 바뀌는 일은 없다.  
+    @Import( {AppConf1.class, AppConf2.class} )
+    ```
 > DB  
 * 자바코드로 작성된 Map에 데이터를 넣고 실행하면, 메모리에 저장되는 것이기 때문에 프로그램 종료시 저장한 모든 회원 데이터가 사라진다.  
   - 프로그램을 종료해도 회원 데이터를 유지하려면 MySQL, Oracle DB에 저장해야 한다.  
