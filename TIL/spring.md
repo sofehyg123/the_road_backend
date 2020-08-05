@@ -35,7 +35,14 @@
       - 직접 생성한 경우: 일일이 변경하게 되기 떄문에 유지보수가 힘들다.  
 * 스프링은 DI르 지원하는 조립기이다.  
   - 책에서 Assembler(조립기) 해당하는 자바코드를 작성해봄.  
-  - 조립기 -> 필요하 객체를 생성하 생성한 객체에 의존을 주입하는 기능.  
+  - 조립기 -> 필요한 객체를 생성하 생성한 객체에 의존을 주입하는 기능.  
+* DI 방식:  
+  - 생성자 방식  
+  - 세터 메서드 방식  
+    - 파라미터 1개이다.  
+    - 리턴 타입이 void다.  
+    - [새터,게터 정보 득](http://bit.ly/22Rj2Ar)  
+  - 
   
 
 
@@ -44,9 +51,11 @@
 * AnnotationConfigApplicationContext 클래스  
   - 자바 클래스(@Configuration 애노테이션이 설정된)에서 정보를 읽어와 빈 객체를 생성하고 관리한다.(스프링의 핵심 기능)  
   - ApplicationContext 인터페이스에 정의되어 있는 것을 알맞게 구현한 클래스 중 하나.  
-  - 구현된 AnnotationConfigApplicationContext 클래스는 설정 정보로부터 Bean이라고 불리는 객체를 생성하고 그 객체를 내부에 보관한다.  
+  - 구현된 AnnotationConfigApplicationContext 클래스는 설정 정보로부터 Bean이라고 불리는 객체를 생성하고 그 객체를 스프링 컨테이너 내부에 보관한다.  
   - 그리고 getBean()메서드를 실행하면 해당하는 빈 객체를 제공한다.  
   - 계층도에서 `BeanFactory` 인터페이스가 최상위에 위치하는데 객체 생성 및 검색에 대한 기능을 제공함.  
+  - ApplicationConfigApplicationContext 클래스를 이용해서 스프링 컨테이너를 생성할 수 있다.  
+    - getBean("Bean메서드이름", Bean 객체주소)
   
 * ApllicationContext 인터페이스  
   - 메세지, 프로필/환경 변수 등을 처리할 수 있는 기능을 추가로 정의  
@@ -55,8 +64,7 @@
 * BeanFactory  
   - 생성된 객체를 검색하는데 필요한 getBean()메서드가 BeanFactory에 정의되어 있다.  
   - 싱글톤/프로토타입 빈인지 확인하는 기능도 제공  
-* Config 자바 클래스 생성  
-  - 
+
 
 > DB  
 * 자바코드로 작성된 Map에 데이터를 넣고 실행하면, 메모리에 저장되는 것이기 때문에 프로그램 종료시 저장한 모든 회원 데이터가 사라진다.  
