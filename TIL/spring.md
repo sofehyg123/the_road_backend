@@ -72,9 +72,12 @@
   - 구현된 AnnotationConfigApplicationContext 클래스는 설정 정보로부터 Bean이라고 불리는 객체를 생성하고 그 객체를 스프링 컨테이너 내부에 보관한다.  
   - 그리고 getBean()메서드를 실행하면 해당하는 빈 객체를 제공한다.  
   - 계층도에서 `BeanFactory` 인터페이스가 최상위에 위치하는데 객체 생성 및 검색에 대한 기능을 제공함.  
-  - ApplicationConfigApplicationContext 클래스를 이용해서 스프링 컨테이너를 생성할 수 있다.  
+  - AnnotationConfigApplicationContext 클래스를 이용해서 스프링 컨테이너를 생성할 수 있다.  
     - getBean("Bean메서드이름", Bean 객체주소)  
-  - close() : 
+    - getBean(Bean 객체주소) 으로도 사용할 수 있다.
+      - 그렇지만, 같은 타입의 빈이 존재하지 않아야함.  
+  - close() : 컨테이너 사용이 끝나면 컨테이너를 종료한다.  
+    - close()메서드는 AbstractApplicationContext(AnnotationConfigApplicationContext, GenericXmlApplicationContext의  부모 클래스) 클래스에 정의되어 있다. 
   
 * ApllicationContext 인터페이스  
   - 메세지, 프로필/환경 변수 등을 처리할 수 있는 기능을 추가로 정의  
