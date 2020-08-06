@@ -73,7 +73,8 @@
   - 그리고 getBean()메서드를 실행하면 해당하는 빈 객체를 제공한다.  
   - 계층도에서 `BeanFactory` 인터페이스가 최상위에 위치하는데 객체 생성 및 검색에 대한 기능을 제공함.  
   - ApplicationConfigApplicationContext 클래스를 이용해서 스프링 컨테이너를 생성할 수 있다.  
-    - getBean("Bean메서드이름", Bean 객체주소)
+    - getBean("Bean메서드이름", Bean 객체주소)  
+  - close() : 
   
 * ApllicationContext 인터페이스  
   - 메세지, 프로필/환경 변수 등을 처리할 수 있는 기능을 추가로 정의  
@@ -103,11 +104,26 @@
   
 ***
 > DI 정리  
-
+* 스프링 컨테이너 안에 있는 모든 빈들은 고유하게 생성됨.  
+  - 따라서, 타입이 일치하는 경우 @Qualifier을 통해 피해야 한다.  
+  - 타입이 같고 이름이 같을 때 충돌(수동적 vs 자동적(컴포넌트스캔)
+    - 컴포넌트 스캔의 경우  
+      - 수동적이 승리  
+  - 타입이 같은데 이름이 틀린경우(수동으로 Bean 작성, 컴포넌트 애노테이션으로 Bean등록)  
+    - 스프링 컨테이너 안에는 두 개의 Bean이 존재하게 된다.  
+    - 그러나 자동으로 주입의경우(@Autowired) 같은 타입으로 인한 Bean들의 선택충돌이 발생하지 않게 하기 위해 @Qualifier을 사용.  
 * @Configuration  : 스프링 설정 클래스지정  ([참고](http://tech.javacafe.io/spring/2018/11/04/스프링-Configuration-어노테이션-예제/)  
   - 해다 클래스가 하나 이상의 @Bean 메소드를 제공하고 스프링 컨테이가 Bean정의를 생성하고 런타임시 그 Bean들이 요청들을 처리할 것을 선언.  
 * @Bean : 해당 메서드가 생성한 객체를 스프링 빈이라고 설정.  
   - 메서드의 이름을 빈 객체의 이름으로 사용한다.  
-* ComponentS
-*** 
+* ComponentScan은 스캔해서 해당 클래스의 객체를 스프링 빈으로 등록한다.  
+  - getBean을 사용해서 해당 클래스를 사용할 수 있다.
+  - excludeFilters = @Filter(type = FilterTyp.REGEX, pattern="spring\\..*Dao"))
+  - @Filter
+    - type = FilterType.
+      - ANNOTATION, classes={필터로 사용할 애노테이션 타입들} => 컴포넌트 스캔시 제외대상(1개 이상일 경우 배열로처리)  
+      - ASSIGNABLE, classes= 제외할 타입목록(dao.class 등) => 특정 타입이나 그 하위 타입을 제외.  
+      
+     
+
 ***
