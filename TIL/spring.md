@@ -53,7 +53,16 @@
     - @Autowired  
       - required라는 속성을 주어서 주입할 객체가 없을경우 exception을 발생시키는 것보다 null을 반환하도록 함.  
       - 이는 꼭 필요하지 않는 경우에 속성을 넣어주는 경우다. 이럴경우 자동주입을 수행하지 않는다.  
-    - @Qualifier
+    - @Qualifier  
+      - 한정자.  
+    - Optional
+      - 스프링5부터 자바 8의 Optional을 사용해도 됨.  
+      - get()으로 값을 얻어올 수 있다.  
+  - 필수 여부를 지정하는 세 가지 방법  
+    - @Autowired(required=false)
+    - Optional<>
+    - @Nullable
+    - @Autowired와 Nullable의 차이점은 null일 경우 @Autowired의 세터메서드는 호출하지 않고 @Nullabe달린 인자타입에 해당 빈이 없어도 이 메서드는 호출된다.  
 
 > 설정정보  
 * @Configuration : 해당 클래스를 스프링 설정 클래스로 지정한다.  
@@ -92,3 +101,8 @@
 * 자바코드로 작성된 Map에 데이터를 넣고 실행하면, 메모리에 저장되는 것이기 때문에 프로그램 종료시 저장한 모든 회원 데이터가 사라진다.  
   - 프로그램을 종료해도 회원 데이터를 유지하려면 MySQL, Oracle DB에 저장해야 한다.  
   
+***
+> DI 정리  
+
+* @Configuration  : t
+***
