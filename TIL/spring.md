@@ -104,5 +104,10 @@
 ***
 > DI 정리  
 
-* @Configuration  : t
+* @Configuration  : 스프링 설정 클래스지정  ([참고](http://tech.javacafe.io/spring/2018/11/04/스프링-Configuration-어노테이션-예제/)  
+  - 해다 클래스가 하나 이상의 @Bean 메소드를 제공하고 스프링 컨테이가 Bean정의를 생성하고 런타임시 그 Bean들이 요청들을 처리할 것을 선언.  
+* @Bean : 해당 메서드가 생성한 객체를 스프링 빈이라고 설정.  
+  - 메서드의 이름을 빈 객체의 이름으로 사용한다.  
+* ComponentS
+*** 
 ***
