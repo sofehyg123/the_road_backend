@@ -65,3 +65,17 @@
 * Advice의 종류 : `Before Advice`, `After Returning Advice`, `After Throwing Advice`, `After Advice`, `Around Advice`  
   - Around Advice : 다양한 시점에 원하는 기능을 삽입할 수 있기 떄문에 많이 사용됨.  
     - 메서드 실행 전, 후 또는 익셉션 발생 시점에 공통 기능을 실행하는데 사용.  
+    - 캐시 기능, 성능 모니터링 기능과 같은 Aspect 구현할 때 사용.  
+    
+* 스프링 AOP 구현(P.161 참고)  
+1. Aspect로 사용할 클래스에 @Aspect 애노테이션을 붙인다.
+2. @Pointcut 애노테이션으로 공통 기능을 적용할 Pointcut을 정의한다.
+3. 공통 기능을 구현한 메서드에 @Around 애노테이션을 적용한다.
+
+* 공통 기능을 적용하는데 필요한 코드를 구현하면, 스프링 설정 클래스 작성  
+
+
+
+
+*** 
+
