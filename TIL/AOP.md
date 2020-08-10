@@ -74,8 +74,22 @@
 
 * 공통 기능을 적용하는데 필요한 코드를 구현하면, 스프링 설정 클래스 작성  
 
+* getBean에 적은 타입클래스가 인터페이스를 상속하면 런타임시 인터페이스를 이용해서 프록시객체를 생성한다.(P.168)  
+```
+<AOP적용>
+@Bean
+public Calculator calculator(){
+  return new RecCalculator();
+}
+
+RecCalculator cal = ctx.getBean("calculator", RecCalculator.class);
+// -> exception!! calculator 이름의 실제 클래스 타입은 프록시타입이다. 따라서 상속받은 인터페이스인 Calculator 아니면 프록시 타입으로 받아야 한다.  
+```
+  
+* 인터페이스 상속이 아니라 클래스를 상속받고 싶다면 `@EnableAspectJAutoProxy(proxyTargetClass=true)` 를 해줘야 한다.  
+* 그럼 위 코드처럼 RecCalculator에 상속받아 프록시객체를 생성하므로 타입변환이 가능하다.  
 
 
-
+***
 *** 
 
