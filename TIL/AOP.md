@@ -88,8 +88,7 @@ RecCalculator cal = ctx.getBean("calculator", RecCalculator.class);
   
 * 인터페이스 상속이 아니라 클래스를 상속받고 싶다면 `@EnableAspectJAutoProxy(proxyTargetClass=true)` 를 해줘야 한다.  
 * 그럼 위 코드처럼 RecCalculator에 상속받아 프록시객체를 생성하므로 타입변환이 가능하다.  
+  
+* 여러 Aspect를 적용하는 경우에 적용 순서가 중요하다면 @Order를 적용시켜보자!  
 
-
-***
-*** 
 
